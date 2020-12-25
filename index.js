@@ -1,12 +1,12 @@
 const appPort = 2999;
-const clientPort = 3000;
+const client = 'corktaint.s3-website-us-east-1.amazonaws.com';
 const app = require('express')();
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./queries');
 const http = require('http').createServer(app);
 const io = require('socket.io')(http,{cors: {
-    origins: [`http://localhost:${clientPort}`],
+    origins: [client,'localhost:3000'],
     methods: ["GET", "POST"]
 }});
 app.use(cors());
